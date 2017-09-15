@@ -4,6 +4,9 @@ class StudentsController < ApplicationController
     def create
     end
     
+    def new
+    end
+    
     private
     
     def student_params
