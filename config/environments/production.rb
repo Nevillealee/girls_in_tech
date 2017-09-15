@@ -1,7 +1,7 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+  #production url set to heroku cloud server where app is held
+  config.action_mailer.default_url_options = { host: 'https://nasw-app.herokuapp.com/' }
 
-  # Code is not reloaded between requests.
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
