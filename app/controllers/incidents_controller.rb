@@ -3,7 +3,6 @@ class IncidentsController < ApplicationController
     
     def show
          @incident = Incident.find_by_id(params[:id])
-        return render_not_found if @incident.blank?
     end
     
         private
