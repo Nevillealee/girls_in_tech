@@ -22,7 +22,10 @@ html, body , .container {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    justify-content: left;
+}
+
+.login {
+    flex-direction: column;
 }
 
 
