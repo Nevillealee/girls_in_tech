@@ -21,7 +21,7 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
-  password: password
+  password: ENV["production_db_pw"]
   host: localhost
 
 #   Ensure the SQLite 3 gem is defined in your Gemfile
