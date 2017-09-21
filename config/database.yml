@@ -90,4 +90,4 @@ production:
   <<: *default
   database: naswApp_production
   #username: naswApp
-password: <%= ENV['secret_key_base'] %>
+#password: <%= ENV['secret_key_base'] %>
