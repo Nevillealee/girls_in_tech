@@ -145,10 +145,13 @@ end
 
 * [Rails](http://rubyonrails.org/) -  A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern.
 * [Rubygems](https://www.ruby-toolbox.com/projects/bundler.html) - Dependency Management
+* [Javascript] http://vanilla-js.com/ a fast, lightweight, cross-platform framework for building incredible, powerful JavaScript applications.
 
 ## Authors
 
 * **Neville Lee** - *Initial work* - [Nevillealee](https://github.com/nevillealee)
+* **Jake Westerfield** - *Initial work* - [JSWesterfield](https://github.com/JSWesterfield)
+* **Jorge Orrantia** - *Initial work* - [joldigital](https://github.com/joldigital)
 
 ## License
 
