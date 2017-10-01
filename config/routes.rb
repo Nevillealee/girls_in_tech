@@ -3,6 +3,7 @@ devise_for :users, controllers: { registrations: 'users/registrations', password
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :students
 
+#students#index is the splash page after users authenticate
 authenticated :user do
   root to:  'students#index', as: :authenticated_root
 end
