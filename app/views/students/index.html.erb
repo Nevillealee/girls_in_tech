@@ -12,3 +12,13 @@
   </form>
 </nav>
 
+<div class="search box">
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search by students name:") %>
+    <br />
+    <%= text_field_tag(:q) %>
+    <br />
+    <br />
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
