@@ -17,20 +17,20 @@
   <%= form_tag(students_path, method: "get",id: "search-box") do %>
     <%= label_tag("Search by students name:") %>
     <br />
-    <%= text_field_tag(placeholder: "Search student") %>
+    <%= text_field_tag(:search, params[:search]) %>
     <br />
     <br />
     <%= submit_tag("Search", name: nil) %>
   <% end %>
   
   <hr />
-  
-  <%= @student.each do |student| %>
-  <ul>
-    <li>
-    <h2><%= student.name %></h2>
-    </li>
+   
+  <ul> 
+    <%= @student.each do |student| %>
+      <li>
+      <h2><%= student.name %></h2>
+      </li>
+    <% end %>
   </ul>
-  <% end %>
 </div>
 </div>

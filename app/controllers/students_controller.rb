@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
     before_action :authenticate_user!
     
     def index
-        @student = Student.all
+        @student = Student.search(params[:search])
     end
     
     def create
