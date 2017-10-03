@@ -32,5 +32,10 @@
       </li>
     <% end %>
   </ul>
-</div>
+
+  
+  <% if @student.blank? %>
+    <h3>No students found with the name(s) "<%= params[:search]%>"</h3>
+    <% end %>
+  </div>
 </div>
