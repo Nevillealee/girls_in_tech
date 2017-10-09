@@ -4,6 +4,7 @@ devise_for :users, controllers: { registrations: 'users/registrations', password
 resources :students
 
 #students#index is the splash page after users authenticate
+
 authenticated :user do
   root to:  'students#index', as: :authenticated_root
 end
