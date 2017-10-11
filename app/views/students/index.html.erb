@@ -1,3 +1,4 @@
+<!--NAVIGATION BAR-->
 <nav class="navbar navbar-light" style="background-color: #7D82CD">  
   <form class="form-inline">
      <ul class="navbar-nav mr-auto">
@@ -12,6 +13,7 @@
   </form>
 </nav>
 
+<!--SEARCH FORM-->
 <div class ="container">
   <div class ="row">
     <div class="col-md-4 offset-4">
@@ -25,7 +27,7 @@
   <% end %>
   
   <hr />
-   
+ <!--LIST OF CURENT STUDENTS IN DB  -->
   <ul> 
     <%= @student.each do |student| %>
       <li>
@@ -34,7 +36,7 @@
     <% end %>
   </ul>
 
-  
+ <!--ALERT MESSAGE FOR INVALID SEARCH -->
   <% if @student.blank? %>
     <h3>No students found with the name(s) "<%= params[:search]%>"</h3>
     <% end %>

@@ -1,0 +1,42 @@
+<!--ANALYTICS PAGE-->
+<body > 
+  <nav class="navbar navbar-light" style="background-color: #7D82CD">
+    <div>
+      <%= link_to 'FACTA', authenticated_root_path, class: 'navbar-brand mb-0' %>
+    </div>
+  </nav>
+  <!--TEST DIV-->
+    <div class="container">
+
+      <!--End of TOP SECTION-->
+      <hr/>
+     <div class = "col-md-6 text-center">
+          <!-- NEW SECTION/BOTTOM SECTION-->
+          <div class="flex-column">
+            <h2 class="">Class History</h2>
+            <br>
+            <p class="">Teachers reporting behaviour 4
+              <!-- <%= @reportedBehavior -%> -->
+            </p>
+            <p class="">Number of reports 5
+              <!-- <%= @numberOfReports -%> -->
+            </p>
+            <p class="">Strategies applied 10
+              <!-- <%= @strategiesApplied-%> -->
+            </p>
+            <p class="">Number of incidents 3
+              <!-- <%= @numberOfincidents -%> -->
+            </p>
+            
+            <!--INITIATE DROPDOWN OF PREVIOUS INCIDENTS FROM TEACHERS-->
+            <button type="submit" class="btn btn-primary ml-3" id="reportStudent">Previous Student Incidents</button>
+          </div>
+      </div>
+    <div class = "col-md-6 text-center">
+      <h2>Pie chart goes here</h2>
+    </div>
+        <!--ADD RENDERED PIE CHART BELOW-->
+    </div>
+  <!--END OF TEST DIV-->
+
+</body>
