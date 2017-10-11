@@ -150,7 +150,7 @@ end
 ## Authors
 
 * **Neville Lee** - *Initial work* - [Nevillealee](https://github.com/nevillealee)
-* **Jake Westerfield** - *Initial work* - [JSWesterfield](https://github.com/JSWesterfield)
+* **Pilar Zarate chaves** - *Initial work* - [Pilar Zarate](https://about.me/pilarzarate)
 * **Jorge Orrantia** - *Initial work* - [joldigital](https://github.com/joldigital)
 
 ## License
