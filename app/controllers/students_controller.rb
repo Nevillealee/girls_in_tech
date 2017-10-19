@@ -12,6 +12,10 @@ class StudentsController < ApplicationController
         @student = Student.new
     end
     
+    def show
+        @student = Student.find_by(params[:id])
+    end
+    
     private
     
     def student_params
