@@ -5,4 +5,5 @@ class Student < ApplicationRecord
     def self.search(search)
         where("lower(name) LIKE lower(?)", "%#{search}%")
     end
+
 end
