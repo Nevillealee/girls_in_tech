@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
     
     def show
         @student = Student.find_by(params[:id])
-        @numOfStrat = Student.joins(:incidents).uniq(:strategies)
+        @numOfStrat = Student.joins(:incidents).uniq.pluck(:strategies)
     end
     
     private
