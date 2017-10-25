@@ -15,31 +15,48 @@
 
 <!--SEARCH FORM-->
 <div class ="container">
-  <div class ="row">
-    <div class="col-md-4 offset-4">
+  <div class="col-6">
   <%= form_tag(students_path, method: "get",id: "search-box") do %>
     <%= label_tag("Search by students name:") %>
     <br />
-    <%= text_field_tag(:search, params[:search]) %>
+    <%= text_field_tag(:search, params[:search], class: 'search-bar') %>
     <br />
     <br />
     <%= submit_tag("Search", name: nil) %>
   <% end %>
   
-  <hr />
- <!--LIST OF CURENT STUDENTS IN DB  -->
-  <ul> 
-    <%= @student.each do |student| %>
-      <li>
-      <h2><%= student.name %></h2>
-      </li>
-    <% end %>
-  </ul>
-
+ 
  <!--ALERT MESSAGE FOR INVALID SEARCH -->
   <% if @student.blank? %>
     <h3>No students found with the name(s) "<%= params[:search]%>"</h3>
     <% end %>
   </div>
+
+
+<!--LIST OF CURENT STUDENTS IN DB  -->
+<div class="col-6">
+<h4>Students</h4>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Grade level</th>
+  </tr>
+ 
+<% @student.each do |student| %>
+  <tr>
+    <td><%= student.name %></td>
+    <td><%= student.grade %></td>
+    <td><%= link_to "Show", student %></td>
+    <td><%= link_to "Edit", edit_student_path(student) %></td>
+    <td><%= link_to "Remove", student, method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+<% end %>
+</table>
 </div>
-</div>
+
+</div> <!--END OF CONTAINER-->
+
+<!--JAVASCRIPT TO CLEAR SEARCH INPUT FIELD AFTER PAGE RELOADS -->
+<script>
+  $('.search-bar').val("");
+</script>
