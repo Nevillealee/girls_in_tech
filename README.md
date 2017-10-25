@@ -1,4 +1,6 @@
-# FACTA
+# FACTA 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/Nevillealee/girls_in_tech.svg?columns=all)](http://waffle.io/Nevillealee/girls_in_tech)
+
 A data management and analytics product that allows school faculty and social workers to monitor, collaborate, and adjust methodologies for correcting abnormal student behavior by determining the core cause of the issue and the effectiveness of current remedies.
 
 ## Getting Started
