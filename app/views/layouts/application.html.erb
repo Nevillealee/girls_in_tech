@@ -10,6 +10,21 @@
 
 
 <body class="<%= controller.controller_name%>">   
+<!--NAVIGATION BAR-->
+<nav class="navbar fixed-top navbar-light" style="background-color: #7D82CD">  
+  <form class="form-inline">
+     <ul class="navbar-nav mr-auto">
+      </ul>
+      <div class="btn btn-primary">
+        &nbsp;
+        <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>
+        &nbsp;
+        <%= link_to 'Add a new student', new_student_path(@student), {:style=>'color:#FFFFFF;' 'text-decoration:none;' } %>
+        &nbsp;
+      </div>
+  </form>
+</nav>
+
     <% if notice.present? %>
       <p class="alert alert-info"><%= notice %></p>
     <% end %>
