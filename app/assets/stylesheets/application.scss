@@ -29,8 +29,10 @@ body {
 }
 
 
+
 html, body , .container {
     height: 100%;
+    padding: 45px 0 0 0;
 }
 .container {
     display: -webkit-flexbox;
@@ -46,4 +48,3 @@ html, body , .container {
 .login {
     flex-direction: column;
 }
-

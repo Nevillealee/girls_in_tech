@@ -11,26 +11,32 @@
 
 <body class="<%= controller.controller_name%>">   
 <!--NAVIGATION BAR-->
-<nav class="navbar fixed-top navbar-light" style="background-color: #7D82CD">  
+<!-- ONLY DISPLAY NAVBAR IF USER LOGGED IN -->
+<% if user_signed_in? %>
+<nav class="navbar fixed-top navbar-light" style="background-color: #7D82CD">
   <form class="form-inline">
+    <%= link_to 'FACTA', authenticated_root_path, class: 'navbar-brand mb-0' %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
      <ul class="navbar-nav mr-auto">
       </ul>
+      <!-- ADD NEW STUDENT BTN -->
       <div class="btn btn-primary">
         &nbsp;
         <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>
         &nbsp;
-        <%= link_to 'Add a new student', new_student_path(@student), {:style=>'color:#FFFFFF;' 'text-decoration:none;' } %>
+          <%= link_to 'Add a new student', new_student_path, {:style=>'color:#FFFFFF;' 'text-decoration:none;' } %>
         &nbsp;
       </div>
   </form>
 </nav>
+<% end %>
 
-    <% if notice.present? %>
-      <p class="alert alert-info"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    <!--<% if notice.present? %>-->
+    <!--  <p class="alert alert-info"><%= notice %></p>-->
+    <!--<% end %>-->
+    <!--<% if alert.present? %>-->
+    <!--  <p class="alert alert-danger"><%= alert %></p>-->
+    <!--<% end %>-->
     <%= yield %>
   </body>
 </html>

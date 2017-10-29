@@ -14,10 +14,16 @@ class StudentsController < ApplicationController
     
     def show
         @student = Student.find_by(params[:id])
-        @numOfStrat = Student.joins(:incidents).distinct.pluck(:strategies)
+        # <!--QUERY NOT WORKING-->
+        @numOfStrat = Student.select(:stratgies).distinct
     end
     
+    
     private
+    
+    def current_student 
+        @current_student = Student.find_by(params[:id])
+    end
     
     def student_params
         params.require(:student).permit(:name, :grade, :dob, :student_id)
