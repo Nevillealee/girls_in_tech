@@ -16,10 +16,13 @@
             </p>
             <p class="">Strategies applied: 
             <!-- SHOULD ACCOUNT FOR NIL VALUES => 10/23/17 -->
-              <%= @numOfStrat.size %>
+              <%= @student.getStrategy %> 
             </p>
             <p class="">Number of incidents:  
+            <!-- COUNTS INCIDENTS IF VALUE NOT NIL -->
+            <% if @student.incidents != nil %>
                <%= @student.incidents.size %> 
+            <% end %>
             </p>
           </div>
       </div>
@@ -32,7 +35,7 @@
           var data = google.visualization.arrayToDataTable([
             ['Information', 'Counts'],
             ['Reports',     5],
-            ['Strategies',    <%= @numOfStrat.size %>],
+            ['Strategies',    <%= @student.getStrategy %>],
             ['Incidents',   <%= @student.incidents.size %>]
             // ['Watch TV', 2],
             // ['Sleep',    7]
