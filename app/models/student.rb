@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-    has_many :incidents, dependent: :destroy
+        has_many :incidents, dependent: :destroy
     
     #search method for finding student by name field(first,last)"
     def self.search(search)
