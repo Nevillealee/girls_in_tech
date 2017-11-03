@@ -10,28 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024030117) do
+ActiveRecord::Schema.define(version: 20171103002319) do
+
+  create_table "case_carriers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string   "category"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "interventions_count", default: 0
+  end
 
   create_table "incidents", force: :cascade do |t|
+    t.string   "behavior"
+    t.string   "place"
+    t.time     "time"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_incidents_on_student_id"
+  end
+
+  create_table "interventions", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "duration"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "challenge_id"
+    t.index ["challenge_id"], name: "index_interventions_on_challenge_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string   "context"
+    t.string   "category"
+    t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "student_id"
-    t.string   "strategies"
-    t.text     "description"
-    t.string   "context"
-    t.index ["student_id"], name: "index_incidents_on_student_id"
+  end
+
+  create_table "staff_members", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "department"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
-    t.integer  "grade"
+    t.integer  "studentId"
     t.date     "dob"
-    t.integer  "student_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "incident"
-    t.integer  "incidents_count"
-    t.index ["student_id"], name: "index_students_on_student_id"
+    t.integer  "grade"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "incidents_count", default: 0
   end
 
   create_table "users", force: :cascade do |t|
