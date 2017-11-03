@@ -10,3 +10,7 @@ script:
 before_script:
   - createdb naswApp_test
 bundler_args: --binstubs=./bundler_stubs
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgresql
