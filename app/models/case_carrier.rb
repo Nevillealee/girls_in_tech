@@ -1,0 +1,2 @@
+class CaseCarrier < ApplicationRecord
+end
