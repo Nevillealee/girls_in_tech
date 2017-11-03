@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171103002319) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "case_carriers", force: :cascade do |t|
     t.string   "name"
     t.string   "title"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20171103002319) do
     t.integer  "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_incidents_on_student_id"
+    t.index ["student_id"], name: "index_incidents_on_student_id", using: :btree
   end
 
   create_table "interventions", force: :cascade do |t|
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171103002319) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "challenge_id"
-    t.index ["challenge_id"], name: "index_interventions_on_challenge_id"
+    t.index ["challenge_id"], name: "index_interventions_on_challenge_id", using: :btree
   end
 
   create_table "reports", force: :cascade do |t|
@@ -85,8 +88,8 @@ ActiveRecord::Schema.define(version: 20171103002319) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
