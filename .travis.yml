@@ -1,5 +1,3 @@
-before_install:
-  - gem install bundler
 language: ruby
 rvm:
   - "2.3.0"
@@ -10,7 +8,3 @@ script:
 before_script:
   - createdb naswApp_test
 bundler_args: --binstubs=./bundler_stubs
-env:
-  - DB=sqlite
-  - DB=mysql
-  - DB=postgresql
