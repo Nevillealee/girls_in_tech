@@ -2,8 +2,7 @@ class StudentsController < ApplicationController
     before_action :authenticate_user!
     
     def index
-        @searches = Student.search(params[:search])
-        @students = Student.all
+        @student = Student.search(params[:search])
 
     end
     
@@ -16,8 +15,6 @@ class StudentsController < ApplicationController
     
     def show
         @student = Student.find_by_id(params[:id])
-        # <!--QUERY NOT WORKING-->
-        # @numOfStrat = Student.select(:stratgies).distinct.joins(:incidents)
     end
     
     

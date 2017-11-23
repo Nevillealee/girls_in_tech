@@ -6,7 +6,7 @@ class Student < ApplicationRecord
         where("lower(name) LIKE lower(?)", "%#{search}%")
     end
 
-    def getStrategy
-        Student.includes(:incidents).count("DISTINCT strategies")
-    end
+    # def getStrategy
+    #     Student.includes(:incidents).count("DISTINCT strategies")
+    # end
 end

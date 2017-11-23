@@ -3,7 +3,6 @@
   <head>
     <title>NaswApp</title>
     <%= csrf_meta_tags %>
-    <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -31,12 +30,13 @@
 </nav>
 <% end %>
 
-    <!--<% if notice.present? %>-->
-    <!--  <p class="alert alert-info"><%= notice %></p>-->
-    <!--<% end %>-->
-    <!--<% if alert.present? %>-->
-    <!--  <p class="alert alert-danger"><%= alert %></p>-->
-    <!--<% end %>-->
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= javascript_include_tag 'https://www.gstatic.com/charts/loader.js' %>
     <%= yield %>
   </body>
 </html>
