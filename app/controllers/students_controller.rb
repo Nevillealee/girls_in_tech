@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
     end
     
     def create
-        @student = current_user.student.create(student_params)
+        @student = Student.create(student_params)
         if @student.valid?
             redirect_to root_path
         else

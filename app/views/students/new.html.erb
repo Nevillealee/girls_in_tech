@@ -1,12 +1,12 @@
-<p>
-   Why wont this text show up
-</p>
-<h3 class ="grab">NEW student page</h3>
-
-<script>
-$(function(){
-    $("p").click(function(){
-        $(this).hide();
-    });
-});
-</script>
+<div class="col-10 offset-1"> <!--creates margins on sides of view-->
+<!--Boostrap only form-->
+<!--rails-bootstrap form-->
+<%= bootstrap_form_for(@student,label_errors: true) do |f| %>
+  <%= f.text_field :name, label:"Student Name" %>
+  <%= f.number_field :studentId, label: "Student ID" %>
+  <%= f.select :grade,  [["1st", 1], ["2nd", 2], ["3rd", 3], ["4th", 4], ["5th", 5], 
+  ["6th", 6], ["7th", 7], ["8th", 8]], { label: "Grade" }, { class: "custom-select" } %>  
+  <%= f.date_field :dob, label:"Date of birth" %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+</div>
