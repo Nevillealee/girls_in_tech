@@ -1,7 +1,8 @@
 class Student < ApplicationRecord
+    validates :name, :dob, :service_program, :studentId, :grade, presence: true
     has_many :incident_reports, dependent: :destroy
     has_many :challenges, dependent: :destroy
-    has_many :incident_reports, :through => challenges
+    has_many :incident_reports, :through => :challenges
     
     #search method for finding student by name field(first,last)"
     def self.search(search)
