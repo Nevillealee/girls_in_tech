@@ -10,28 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024030117) do
+ActiveRecord::Schema.define(version: 20171124061743) do
 
-  create_table "incidents", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "case_carriers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string   "category"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "interventions_count", default: 0
     t.integer  "student_id"
-    t.string   "strategies"
-    t.text     "description"
-    t.string   "context"
-    t.index ["student_id"], name: "index_incidents_on_student_id"
+    t.integer  "incident_report_id"
+  end
+
+  create_table "incident_reports", force: :cascade do |t|
+    t.string   "behavior"
+    t.string   "place"
+    t.time     "time"
+    t.integer  "student_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "description"
+    t.integer  "challenges_count", default: 0
+    t.index ["student_id"], name: "index_incident_reports_on_student_id", using: :btree
+  end
+
+  create_table "interventions", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "duration"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "challenge_id"
+    t.index ["challenge_id"], name: "index_interventions_on_challenge_id", using: :btree
+  end
+
+  create_table "staff_members", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "department"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
-    t.integer  "grade"
+    t.integer  "studentId"
     t.date     "dob"
-    t.integer  "student_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "incident"
-    t.integer  "incidents_count"
-    t.index ["student_id"], name: "index_students_on_student_id"
+    t.integer  "grade"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "incident_reports_count", default: 0
+    t.integer  "challenges_count",       default: 0
+    t.string   "service_program"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,8 +86,8 @@ ActiveRecord::Schema.define(version: 20171024030117) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

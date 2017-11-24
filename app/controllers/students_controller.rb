@@ -2,10 +2,16 @@ class StudentsController < ApplicationController
     before_action :authenticate_user!
     
     def index
-        @student = Student.search(params[:search])
+        @students = Student.search(params[:search])
     end
     
     def create
+        @student = Student.create(student_params)
+        if @student.valid?
+            redirect_to root_path
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
     
     def new
@@ -13,13 +19,14 @@ class StudentsController < ApplicationController
     end
     
     def show
-        @student = Student.find_by(params[:id])
-        @numOfStrat = Student.joins(:incidents).distinct.pluck(:strategies)
+        @student = Student.find_by_id(params[:id])
+        @interventionCount =Student.getInterventions
     end
+    
     
     private
     
     def student_params
-        params.require(:student).permit(:name, :grade, :dob, :student_id)
+        params.require(:student).permit(:name, :grade, :dob, :student_id, :service_program)
     end
 end
