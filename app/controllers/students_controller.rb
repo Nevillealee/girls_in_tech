@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
     
     def show
         @student = Student.find_by_id(params[:id])
+        @interventionCount =Student.getInterventions
     end
     
     

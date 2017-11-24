@@ -7,19 +7,14 @@
           <div class="flex-column">
             <h2 class="">Class History</h2>
             <br>
-            <p class="">Teachers reporting behaviour 4
+            <!--<p class="">Teachers reporting behaviour 4-->
               
+            <!--</p>-->
+            <p class="">Incidents Reported: 
+              <%=@student.incident_reports_count %>
             </p>
-            <p class="">Number of reports 5
-              
-            </p>
-            <p class="">Strategies applied: 
-            <!-- SHOULD ACCOUNT FOR NIL VALUES => 10/23/17 -->
-          
-            </p>
-            <p class="">Number of incidents:  
-            <!-- COUNTS INCIDENTS IF VALUE NOT NIL -->
-
+            <p class="">Interventions: 
+              <%=@interventionCount %>
             </p>
           </div>
       </div>
@@ -31,14 +26,18 @@
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
             ['Information', 'Counts'],
-            ['Reports',     5],
-            ['Strategies',  1],
-            ['Incidents',   3]
+            ['Reports',     <%=@student.incident_reports_count %>],
+            ['Interventions',  <%=@interventionCount %>],
+            //['Incidents',   3]
             // ['Watch TV', 2],
             // ['Sleep',    7]
           ]);
   
           var options = {
+            titleTextStyle: {
+            fontSize: 28, // 12, 18 whatever you want (don't specify px)
+            bold: false,
+            },
             title: "<%= @student.name %>",
             pieHole: 0.6,
           };
