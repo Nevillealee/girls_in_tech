@@ -12,7 +12,7 @@
   
  
  <!--ALERT MESSAGE FOR INVALID SEARCH -->
-  <% if @student.blank? %>
+  <% if @students.blank? %>
     <h3>No students found with the name(s) "<%= params[:search]%>"</h3>
     <% end %>
   </div>
@@ -30,7 +30,7 @@
     <th><i class="fa fa-trash fa-lg" aria-hidden="true"></i></th>
   </tr>
  
-<% @student.each do |student| %>
+<% @students.each do |student| %>
   <tr>
     <td><%= student.name %></td>
     <td><%= student.grade %></td>

@@ -2,11 +2,16 @@ class StudentsController < ApplicationController
     before_action :authenticate_user!
     
     def index
-        @student = Student.search(params[:search])
-
+        @students = Student.search(params[:search])
     end
     
     def create
+        @student = current_user.student.create(student_params)
+        if @student.valid?
+            redirect_to root_path
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
     
     def new
