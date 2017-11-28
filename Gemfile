@@ -20,7 +20,7 @@ source 'https://rails-assets.org' do
 end
 gem 'devise'
 gem 'simple_form'
-gem 'puma', '~> 3.0'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -62,3 +62,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jquery-ui-rails'
 gem 'bootstrap_form'
+ruby "2.3.0"
