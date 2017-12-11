@@ -23,6 +23,9 @@ class StudentsController < ApplicationController
         @interventionCount =Student.getInterventions
     end
     
+    def edit
+    end
+    
     
     private
     
