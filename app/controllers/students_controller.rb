@@ -21,6 +21,7 @@ class StudentsController < ApplicationController
     def show
         @student = Student.find_by_id(params[:id])
         return render_not_found if @student.blank?
+        
         @interventionCount =Student.getInterventions
     end
     
@@ -31,11 +32,13 @@ class StudentsController < ApplicationController
     
     def update
         @student = Student.find_by_id(params[:id])
-        if @student.update_attributes(student_params)
-            flash[:success] = "Student updated"
-            redirect_to @student
-        else
-            render 'edit'
+        return render_not_found if @student.blank?
+        @student.update_attributes(student_params)
+        
+        if @student.valid?
+            redirect_to root_path
+        else                
+            return render :edit, status: :unprocessable_entity 
         end
     end
     

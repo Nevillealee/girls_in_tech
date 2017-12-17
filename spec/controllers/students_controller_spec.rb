@@ -27,4 +27,32 @@ RSpec.describe StudentsController, type: :controller do
         expect(response).to have_http_status(:not_found)
     end
   end
+  
+   describe "students#update action" do
+    it "should allow users to successfully update grams" do
+        user = create(:user)
+        sign_in user
+        student = create(:student, name: "Initial value")
+        patch :update, params: {id: student.id, student: {name: "Updated"}}
+        expect(response).to redirect_to root_path
+        student.reload
+        expect(student.name).to eq "Updated"
+    end
+
+    it "should have http 404 error if the gram cannot be found" do
+        user = create(:user)
+        sign_in user
+        patch :update, params: {id: "ELMO", student: {name: "Updated"}}
+        expect(response).to have_http_status(:not_found)
+    end
+
+    it "should render the edit form with an http status of unprocessable_entity" do
+        user = create(:user)
+        sign_in user
+        student = create(:student)
+        patch :update, params: {id: student.id, student: {name: ''}}
+        expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end 
+  
 end

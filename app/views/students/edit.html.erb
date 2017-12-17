@@ -3,7 +3,7 @@
     <%= bootstrap_form_for(@student,label_errors: true) do |f| %>
       <%= f.text_field :name, label:"Student Name" %>
       <%= f.form_group :service_program, label: { text: "Service Program" } do %>
-        <%= f.radio_button :service_program, "Gen-Ed", label: "Gen-Ed", checked: true %>
+        <%= f.radio_button :service_program, "Gen-Ed", label: "Gen-Ed" %>
         <%= f.radio_button :service_program, "IEP", label: "IEP"%>
         <%= f.radio_button :service_program, "504", label: "504"%>
         <%= f.radio_button :service_program, "ELL", label: "ELL"%>
