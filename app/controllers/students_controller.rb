@@ -42,6 +42,14 @@ class StudentsController < ApplicationController
         end
     end
     
+    def destroy
+        @student = Student.find_by_id(params[:id])
+        return render_not_found if @student.blank?
+        
+        @student.destroy
+        redirect_to root_path
+    end
+    
     
     private
     

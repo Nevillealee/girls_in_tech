@@ -55,4 +55,25 @@ RSpec.describe StudentsController, type: :controller do
     end
   end 
   
+  describe "students#destroy action" do
+    it "should allow a user to destroy students" do
+        user = create(:user)
+        sign_in user
+        
+        student = create(:student) 
+        delete :destroy, params: {id: student.id}
+        expect(response).to redirect_to root_path
+        student = Student.find_by_id(student.id)
+        expect(student).to eq nil
+    end
+    
+    it "should return a 404 message if we cannot find a student with the id that is specified" do
+        user = create(:user)
+        sign_in user
+        student = create(:student)
+        delete :destroy, params: {id: "ELMO"}
+        expect(response).to have_http_status(:not_found)       
+    end
+  end
+  
 end
