@@ -1,35 +1,17 @@
-FactoryGirl.define do
-  factory :challenge do
-    category "MyString"
-  end
-  factory :intervention do
-    start_date "2017-11-02"
-    end_date "2017-11-02"
-    duration "9.99"
-  end
-  factory :case_carrier do
-    name "MyString"
-    title "MyString"
-  end
-  factory :report do
-    context "MyString"
-    category "MyString"
-    description "MyString"
-  end
-  factory :staff_member do
-    
-  end
-  factory :incident do
-    
-  end
-  factory :student do
-    
-  end
-  factory :user do
-    sequence :email do |n|
-      "dummyEmail#{n}@gmail.com"
+FactoryBot.define do
+    factory :user do
+        sequence :email do |n|
+            "fakeemail#{n}@gmail.com"
+        end
+        password "imaginedragon"
+        password_confirmation "imaginedragon"
     end
-    password "secretPassword"
-    password_confirmation "secretPassword"
-  end
+    
+    factory :student do
+        name "john Q"
+        studentId "1316992"
+        dob "1800-11-14"
+        grade "2"
+        service_program "Gen Ed"
+    end
 end
