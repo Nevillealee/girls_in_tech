@@ -18,11 +18,15 @@
       <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
      <ul class="navbar-nav mr-auto">
       </ul>
+      <div class ="btn btn-warning">
+         &nbsp;
+        <%= link_to 'Teacher Dashboard', incidents_path, {:style=>'color:#FFFFFF;' 'text-decoration:none;' } %>
+      </div>
       <!-- ADD NEW STUDENT BTN -->
       <div class="btn btn-primary">
         &nbsp;
         <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>
-        &nbsp;
+        &nbsp;        
           <%= link_to 'Add a new student', new_student_path, {:style=>'color:#FFFFFF;' 'text-decoration:none;' } %>
         &nbsp;
       </div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-resources :students
+resources :students, :incidents
 
 #students#index is the splash page after users authenticate
 
